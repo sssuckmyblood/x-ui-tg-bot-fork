@@ -217,6 +217,8 @@ func (t *Tgbot) answerCallback(callbackQuery *tgbotapi.CallbackQuery) {
 		t.getClientUsage(callbackQuery.From.ID, callbackQuery.From.UserName)
 	case "client_commands":
 		t.SendMsgToTgbot(callbackQuery.From.ID, t.I18nBot("tgbot.commands.helpClientCommands"))
+	case "client_profile":
+		t.SendMsgToTgbot(callbackQuery.From.ID, t.I18nBot("tgbot.commands.status"))
 	case "onlines":
 		t.onlineClients(callbackQuery.From.ID)
 	case "commands":
@@ -254,6 +256,7 @@ func (t *Tgbot) SendAnswer(chatId int64, msg string, isAdmin bool) {
 	)
 	numericKeyboardClient := tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.NewInlineKeyboardButtonData(t.I18nBot("tgbot.buttons.clientProfile"), "client_profile"),
 			tgbotapi.NewInlineKeyboardButtonData(t.I18nBot("tgbot.buttons.clientUsage"), "client_traffic"),
 			tgbotapi.NewInlineKeyboardButtonData(t.I18nBot("tgbot.buttons.commands"), "client_commands"),
 		),

@@ -502,6 +502,7 @@
 "getInbounds" = "Get Inbounds"
 "depleteSoon" = "Deplete Soon"
 "clientUsage" = "Get Usage"
+"clientProfile" = "Get Profile"
 "onlines" = "Online Clients"
 "commands" = "Commands"
 
